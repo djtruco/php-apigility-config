@@ -37,3 +37,19 @@ Group staff
 Check configuration: `sudo apachectl -t`
 
 Restart: `sudo apachectl restart`
+
+# XDebug config
+
+```
+git clone https://github.com/derickr/xdebug.git
+cd xdebug
+phpize
+./configure --enable-xdebug
+make
+cp -r modules/  /usr/local/xdebug
+
+# Check http://localhost/phpinfo.php to find php.ini, then update
+zend_extension= /usr/local/xdebug/xdebug.so
+
+sudo apachectl restart
+```

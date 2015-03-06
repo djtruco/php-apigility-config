@@ -53,3 +53,9 @@ zend_extension= /usr/local/xdebug/xdebug.so
 
 sudo apachectl restart
 ```
+
+# Notes
+
+```
+composer.phar self-update
+```

@@ -10,6 +10,7 @@ php composer.phar create-project -sdev zfcampus/zf-apigility-skeleton path/to/in
 ```
 cd /etc/apache2/
 cp httpd.conf httpd.conf.bak
+```
 
 Enable lines
 

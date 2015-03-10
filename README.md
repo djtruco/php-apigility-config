@@ -7,6 +7,12 @@ php composer.phar create-project -sdev zfcampus/zf-apigility-skeleton path/to/in
 
 ## Steps for Apache configuration in Mac OS X
 
+Install php version to run in Apache
+
+```
+sudo phpbrew install php-5.5.22 +apxs2
+```
+
 ```
 cd /etc/apache2/
 cp httpd.conf httpd.conf.bak
@@ -18,7 +24,8 @@ Enable lines
 # /etc/apache2/httpd.conf
 ServerName localhost
 LoadModule rewrite_module libexec/apache2/mod_rewrite.so
-LoadModule php5_module libexec/apache2/libphp5.so
+# LoadModule php5_module libexec/apache2/libphp5.so
+LoadModule php5_module libexec/apache2/libphp5.5.22.so
 Include /private/etc/apache2/extra/httpd-vhosts.conf
 ```
 

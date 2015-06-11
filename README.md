@@ -39,7 +39,11 @@ Check configuration: `sudo apachectl -t`
 
 Restart: `sudo apachectl restart`
 
-# XDebug config
+### XDebug config
+
+Copy `phpinfo.php` in `/Library/WebServer/Documents`. Becauseof the 
+`httpd-vhosts.conf` which reenables default document root you can check php
+config any time through `http://localhost/phpinfo.php`.
 
 ```
 git clone https://github.com/derickr/xdebug.git
@@ -48,14 +52,37 @@ phpize
 ./configure --enable-xdebug
 make
 cp -r modules/  /usr/local/xdebug
+```
 
+```
 # Check http://localhost/phpinfo.php to find php.ini, then update
 zend_extension= /usr/local/xdebug/xdebug.so
+```
 
-sudo apachectl restart
+Restart server: `sudo apachectl restart`
+
+### Gearman config
+
+```
+# install job server
+brew install gearman
+
+# instal php client
+brew install php55-gearman
+```
+
+# Timezone
+
+Edit `/etc/php.ini` and enable:
+
+```
+date.timezone = "Europe/Madrid"
 ```
 
 # Notes
+
+Add to your $PATH binaries from packages installed globally with composer and
+local folder `vendor/bin` for php projects (check dotfiles).
 
 ```
 composer.phar self-update

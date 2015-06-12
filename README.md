@@ -78,6 +78,16 @@ brew install gearman
 brew install php55-gearman
 ```
 
+It turns out the homebrew puts everything in `/usr/local/opt/gearman/bin` in
+your PATH (`gearman` and `gearman-admin`). But it puts gearmand in
+`/usr/local/opt/gearman/sbin`. Homebrew totally misses it.
+
+I solved it by soft-linking to my `/usr/local/bin`.
+
+    ln -s /usr/local/opt/gearman/sbin/gearmand /usr/local/bin
+
+Boom. Now gearmand is in your PATH.
+
 # Timezone
 
 Edit `/etc/php.ini` and enable:
